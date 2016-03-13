@@ -3,6 +3,8 @@ function fisher_install -d "Install plugins"
     set -l option
     set -l stdout /dev/stdout
     set -l stderr /dev/stderr
+    set -l color (set_color $fish_color_match)
+    set -l color_normal (set_color normal)
 
     getopts $argv | while read -l 1 2
         switch "$1"
@@ -82,7 +84,7 @@ function fisher_install -d "Install plugins"
 
                 else
                     if test ! -s $fisher_cache/.index
-                        if spin "__fisher_index_update" --error=/dev/null -f "  @\r" > /dev/null
+                        if spin "__fisher_index_update" --error=/dev/null -f "  $color@$color_normal\r" > /dev/null
                             debug "Update index ok"
                         else
                             debug "Update index fail"
@@ -133,7 +135,7 @@ function fisher_install -d "Install plugins"
             else
                 debug "Clone %s" $url
 
-                if not spin "__fisher_url_clone $url $path" --error=$stderr -f "  @\r"
+                if not spin "__fisher_url_clone $url $path" --error=$stderr -f "  $color@$color_normal\r"
                     continue
                 end
             end

@@ -1,8 +1,10 @@
 function __fisher_gist_to_name -a url
     set -l id (printf "%s\n" "$url" | sed 's|.*/||')
-
+    set -l color (set_color $fish_color_match)
+    set -l color_normal (set_color normal)
+    
     set -l name (
-        spin "curl -Ss https://api.github.com/gists/$id" -f "  @\r" | awk '
+        spin "curl -Ss https://api.github.com/gists/$id" -f "  $color@$color_normal\r" | awk '
 
         /"files": / { files++ }
 
