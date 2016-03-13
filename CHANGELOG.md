@@ -1,5 +1,9 @@
 # Change Log
 
+## [1.4.0][v140] - 2016-03-14
+
+* :zap: Fisherman updates plugins in parallel now.
+
 ## [1.3.1][v131] - 2016-03-12
 
 * Fix bug in fisher_config_color_reset not declaring path variable.

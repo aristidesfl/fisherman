@@ -62,6 +62,8 @@ function fisher_search -d "Search plugin index"
                 set join "||"
 
             case C no-color
+                set color
+                set color_normal
                 set option no-color
 
             case query
